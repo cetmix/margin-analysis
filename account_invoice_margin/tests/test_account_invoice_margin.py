@@ -45,7 +45,7 @@ class TestAccountInvoiceMargin(SavepointCase):
                 "standard_price": 100.00,
             }
         )
-        cls.product.property_account_receivable_id = cls.account
+        cls.product.property_account_income_id = cls.account
         cls.invoice = cls.env["account.move"].create(
             {
                 "partner_id": cls.partner.id,
@@ -59,7 +59,7 @@ class TestAccountInvoiceMargin(SavepointCase):
                         {
                             "product_id": cls.product.id,
                             "product_uom_id": cls.product.uom_id.id,
-                            "account_id": cls.product.property_account_receivable_id.id,
+                            "account_id": cls.product.property_account_income_id.id,
                             "name": "Test Margin",
                             "price_unit": cls.product.list_price,
                             "quantity": 10,
